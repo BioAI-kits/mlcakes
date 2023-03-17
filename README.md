@@ -38,3 +38,18 @@ Some functional modules for machine learning.
 - roc_fig
 
 > Filename, used to save the ROC curve. such as roc_curve.pdf, roc_curve.png
+
+**Example**
+
+```py
+import numpy as np
+from evaluation.binary_class import Metrics
+
+y_pred = np.random.choice(2, size=100)
+y_true = np.random.choice(2, size=100)
+y_score = np.random.random(100)
+    
+Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true, plot_roc=True ,roc_fig='aa.png')
+print(Evaluation.metrics_)
+```
+
