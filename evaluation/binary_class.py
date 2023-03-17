@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 class Metrics():
-    def __init__(self, y_pred, y_true, y_score, plot_roc=False, output='metrics.json', roc_fig=None) -> None:
+    def __init__(self, y_pred, y_true, y_score, output='metrics.json', plot_roc=False, roc_fig=None) -> None:
         self.y_pred = y_pred
         self.y_true = y_true
         self.y_score = y_score
