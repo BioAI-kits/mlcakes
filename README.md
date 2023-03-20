@@ -90,7 +90,7 @@ def softmax(x):
 
 y_score = softmax(y_score)
 
-Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true, roc_fig='aa.png')
+Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true)
 
 print(Evaluation.metrics_)
 ```
