@@ -53,3 +53,6 @@ Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true, plot_roc=Tru
 print(Evaluation.metrics_)
 ```
 
+## TODO
+
+1. Multi-class task evaluation metrics
