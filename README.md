@@ -68,7 +68,7 @@ print(Evaluation.metrics_)
 
 - y_score
 
-> The multi classification model predicts the probability value, shape should be [samples, num_class]. such as [[0.1, 0.2, 0.7], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7]]
+> The multi classification model predicts the probability value, shape should be [samples, num_class]. such as [[0.1, 0.2, 0.7], [0.2, 0.1, 0.7], [0.7, 0.2, 0.1], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7], [0.1, 0.2, 0.7]]
 
 - output
 
