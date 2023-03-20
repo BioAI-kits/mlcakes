@@ -1,17 +1,20 @@
 from sklearn import metrics
 import numpy as np
 import json
-import matplotlib.pyplot as plt
 
 
 class Metrics():
-    def __init__(self, y_pred, y_true, y_score, output='metrics.json', plot_roc=False, roc_fig=None) -> None:
+    def __init__(self, y_pred, y_true, y_score, output='metrics.json') -> None:
+        """ 
+        macro: Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.
+        micro: Calculate metrics globally by counting the total true positives, false negatives and false positives.
+        weighted: Calculate metrics for each label, and find their average weighted by support (the number of true instances for each label). This alters ‘macro’ to account for label imbalance; it can result in an F-score that is not between precision and recall.
+        
+        """
         self.y_pred = y_pred
         self.y_true = y_true
         self.y_score = y_score
-        self.plot_roc = plot_roc
         self.output = output
-        self.roc_fig = roc_fig
         self.checkData()
         self.run()
         self.saveData()
@@ -51,12 +54,6 @@ class Metrics():
         self.b_acc = metrics.balanced_accuracy_score(y_true=self.y_true, y_pred=self.y_pred)
         
     def precision(self) -> None:
-        """ 
-        macro: Calculate metrics for each label, and find their unweighted mean. This does not take label imbalance into account.
-        micro: Calculate metrics globally by counting the total true positives, false negatives and false positives.
-        weighted: Calculate metrics for each label, and find their average weighted by support (the number of true instances for each label). This alters ‘macro’ to account for label imbalance; it can result in an F-score that is not between precision and recall.
-        
-        """
         prec = {}
         # each classification precision
         for cls in set(self.y_true):
@@ -147,7 +144,7 @@ if __name__ == '__main__':
 
     y_score = softmax(y_score)
     
-    Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true, roc_fig='aa.png')
+    Evaluation = Metrics(y_pred=y_pred, y_score=y_score, y_true=y_true)
     
     print(Evaluation.metrics_)
    
